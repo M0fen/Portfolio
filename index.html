@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
+    <title>Responsive Portfolio Website</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <header>
+      <a href="#" class="logo">Portfolio</a>
+
+      <div class="menuToggle"></div>
+      <ul class="nav">
+        <li class="active"><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </header>
+
+    <section id="home">
+      <div class="content">
+        <h2>Carlos Caicedo</h2>
+        <p>
+            Hey! Welcome to my portfolio<br />
+          <br />I am a web developer in constant advancement and progress. Among my qualities I can define the love for challenges and the affinity with teamwork. I'm looking for a full-time job in web development where I can put my skills and knowledge to fruition.
+        </p>
+        <a href="#contact" class="btn">Contact Me</a>
+      </div>
+      <img src="sello.png" alt="Marca" class="men"/>
+    </section>
+    <section id="services">
+      <div class="secText">
+        <h2>What I am Great At</h2>
+        <p>
+          I am a web developer with excellent skills, I love to collaborate and
+          work in a team. I'm looking for a full-time job in web development,
+          where I can apply my knowledge and skills to keep improving.
+        </p>
+      </div>
+      <div class="content">
+        <div class="servicesBx">
+          <img src="icon1.png" />
+          <h3>Web Designing</h3>
+        </div>
+        <div class="servicesBx">
+          <img src="icon2.png" />
+          <h3>Web Development</h3>
+        </div>
+        <div class="servicesBx">
+          <img src="icon3.png" />
+          <h3>Android Apps</h3>
+        </div>
+        <div class="servicesBx">
+          <img src="icon4.png" />
+          <h3>Video Editing</h3>
+        </div>
+      </div>
+    </section>
+    <section id="portfolio">
+      <div class="secText">
+        <h2>My Personal Collection</h2>
+        <p> Work Done to Date</p>
+      </div>
+
+      <div class="content">
+        <div class="imgBx">
+          <img src="stepbarfoto.png" />
+        </div>
+        <div class="imgBx">
+          <img src="githubrealfoto.png" />
+        </div>
+        <div class="imgBx">
+          <img src="passwordgeneratorfoto.jpg" />
+        </div>
+      </div>
+      <div class="center">
+        <a href="#" class="btn">View More</a>
+      </div>
+    </section>
+    <section id="contact">
+      <div class="secText">
+        <h2>Ways To Contact Me</h2>
+        <p>
+            There are some ways to talk with me!
+        </p>
+      </div>
+      <div class="content">
+        <a href="mailto:carloscaicedo188@gmail.com">
+          <ion-icon name="mail-outline"></ion-icon>Email Address
+        </a>
+        <a href="tel:+57312143556">
+          <ion-icon name="call-outline"></ion-icon>Phone Number
+        </a>
+        <a href="https://www.linkedin.com/in/linkedin.com/in/carlos-caicedo-56a6581b1/">
+          <ion-icon name="logo-linkedin"></ion-icon>LinkedIn
+        </a>
+        <a href="https://wa.me/573122143556">
+          <ion-icon name="logo-whatsapp"></ion-icon>Whatsapp
+        </a>
+      </div>
+
+      <div class="center">
+        <p class="copyrights">Copyright©2023
+          <a href="#">Carlos Caicedo</a>. All Rights Reserved.</p>
+      </div>
+        </p>
+      </div>
+    </section>
+
+    <div class="go-top-container">
+      <div class="go-top-button">
+        <i class="fas fa-chevron-up"></i>
+      </div>
+    </div>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script>
+      let list = document.querySelectorAll(".nav li");
+      function active() {
+        list.forEach((i) => i.classList.remove("active"));
+        this.classList.add("active");
+      }
+      list.forEach((i) => i.addEventListener("click", active));
+
+      let menuToggle = document.querySelector(".menuToggle");
+      let header = document.querySelector("header");
+      menuToggle.onclick = function () {
+        header.classList.toggle("active");
+      };
+
+      window.onscroll = function () {
+        if (document.documentElement.scrollTop > 1968) {
+          document.querySelector(".go-top-container").classList.add("show");
+        } else {
+          document.querySelector(".go-top-container").classList.remove("show");
+        }
+
+        document
+          .querySelector(".go-top-container")
+          .addEventListener("click", () => {
+            window.scrollTo({
+              top: 0,
+              behavior: "smooth",
+            });
+          });
+      };
+    </script>
+  </body>
+</html>
