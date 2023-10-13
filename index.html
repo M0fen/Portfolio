@@ -69,20 +69,36 @@
         <p> Work Done to Date</p>
       </div>
 
-      <div class="content">
-        <div class="imgBx">
-          <img src="stepbarfoto.png" />
-        </div>
-        <div class="imgBx">
-          <img src="githubrealfoto.png" />
-        </div>
-        <div class="imgBx">
-          <img src="passwordgeneratorfoto.jpg" />
-        </div>
-      </div>
-      <div class="center">
-        <a href="#" class="btn">View More</a>
-      </div>
+
+     <div class="content">
+  <!-- Nuevas imágenes -->
+  <div class="imgBx new-image">
+    <img src="habitatscreenshot.png" />
+  </div>
+  <div class="imgBx new-image">
+    <img src="Smartblogscreenshot.png" />
+  </div>
+  <div class="imgBx new-image">
+    <img src="toursscreenshot.png" />
+  </div>
+  <!-- Imágenes originales -->
+  <div class="imgBx original-image">
+    <img src="stepbarfoto.png" />
+  </div>
+  <div class="imgBx original-image">
+    <img src="githubrealfoto.png" />
+  </div>
+  <div class="imgBx original-image">
+    <img src="passwordgeneratorfoto.jpg" />
+  </div>
+</div>
+<div class="center">
+  <button id="view-more" class="btn">View More</button>
+</div>
+
+
+
+
     </section>
     <section id="contact">
       <div class="secText">
@@ -98,7 +114,7 @@
         <a href="tel:+57312143556">
           <ion-icon name="call-outline"></ion-icon>Phone Number
         </a>
-        <a href="https://www.linkedin.com/in/linkedin.com/in/carlos-caicedo-56a6581b1/">
+        <a href="https://www.linkedin.com/in/carlos-caicedo-56a6581b1/?locale=en_US">
           <ion-icon name="logo-linkedin"></ion-icon>LinkedIn
         </a>
         <a href="https://wa.me/573122143556">
@@ -119,44 +135,68 @@
         <i class="fas fa-chevron-up"></i>
       </div>
     </div>
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
-    <script>
-      let list = document.querySelectorAll(".nav li");
-      function active() {
-        list.forEach((i) => i.classList.remove("active"));
-        this.classList.add("active");
+
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script>
+  let list = document.querySelectorAll(".nav li");
+  function active() {
+    list.forEach((i) => i.classList.remove("active"));
+    this.classList.add("active");
+  }
+  list.forEach((i) => i.addEventListener("click", active));
+
+  let menuToggle = document.querySelector(".menuToggle");
+  let header = document.querySelector("header");
+  menuToggle.onclick = function () {
+    header.classList.toggle("active");
+  };
+
+  window.onscroll = function () {
+    if (document.documentElement.scrollTop > 1968) {
+      document.querySelector(".go-top-container").classList.add("show");
+    } else {
+      document.querySelector(".go-top-container").classList.remove("show");
+    }
+
+    document
+      .querySelector(".go-top-container")
+      .addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+  };
+
+  // Código para el botón "View More"
+  let viewMoreButton = document.querySelector('#view-more');
+  let originalImages = document.querySelectorAll('.original-image');
+  let newImages = document.querySelectorAll('.new-image');
+  let imageIndex = 0;
+
+  // Oculta las imágenes originales al principio
+  originalImages.forEach(image => {
+    image.style.display = 'none';
+  });
+
+  viewMoreButton.addEventListener('click', function() {
+    // Muestra las siguientes tres nuevas imágenes
+    for(let i = imageIndex; i < imageIndex + 3; i++) {
+      if(i < newImages.length) {
+        newImages[i].style.display = 'block';
       }
-      list.forEach((i) => i.addEventListener("click", active));
-
-      let menuToggle = document.querySelector(".menuToggle");
-      let header = document.querySelector("header");
-      menuToggle.onclick = function () {
-        header.classList.toggle("active");
-      };
-
-      window.onscroll = function () {
-        if (document.documentElement.scrollTop > 1968) {
-          document.querySelector(".go-top-container").classList.add("show");
-        } else {
-          document.querySelector(".go-top-container").classList.remove("show");
-        }
-
-        document
-          .querySelector(".go-top-container")
-          .addEventListener("click", () => {
-            window.scrollTo({
-              top: 0,
-              behavior: "smooth",
-            });
-          });
-      };
-    </script>
+    }
+    
+    // Actualiza el índice de la imagen
+    imageIndex += 3;
+    
+    // Si todas las nuevas imágenes están visibles, oculta el botón
+    if(imageIndex >= newImages.length) {
+      viewMoreButton.style.display = 'none';
+    }
+  });
+</script>
   </body>
 </html>
